@@ -1,13 +1,61 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order <%= @order.id %></h1>
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order <%= @order.email %>!</h4>
   </div>
 
+  <div class="panel panel-default items">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th> 
+        <th colspan="2">Product</th>
+        <th>Quantity</th>
+        <th>Price Each</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+        <td>
+        <%= image_tag item.product.image.tiny  %>
+        </td>
+        <td colspan="2">
+          <h4><%= item.product.name %></h4>
+          <p><%= item.product.description %></p>
+        </td>
+        <td>
+          <h4><%= item.quantity %></h4>
+        </td>
+        <td>
+          <h4><%= humanized_money_with_symbol (item.item_price_cents / 100) %></h4>
+        </td>
+        <td>
+        <h4><%= humanized_money_with_symbol (item.total_price_cents / 100) %></h4>
+      </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">
+          TOTAL:
+        </th>
+        <th>
+        </th>
+        <th>
+          <%= humanized_money_with_symbol (@order.total_cents / 100)
+          %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
