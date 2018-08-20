@@ -3,4 +3,10 @@ class Admin::DashboardController < ApplicationController
 
   def show
   end
+
+  def authentication_request(controller, realm)
+    super
+    controller.response_body = "test.\n"
+   end
+
 end

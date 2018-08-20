@@ -1,0 +1,34 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        Add a review for <strong><%= @product.name %></strong>:
+      </h4>
+      </div>
+        <div class="panel-body">
+
+         <%= form_for [@product, @review] do %>
+          
+           <textarea name="review[description]" id="review_description"></textarea>
+
+         <form id="ratingsForm">
+          <div class="stars">
+            <input type="radio" name="star" class="star" id="star-1" value="1" />
+            <input type="radio" name="star" class="star" id="star-2" value="2"/>
+            <input type="radio" name="star" class="star" id="star-3" value="3"/>
+            <input type="radio" name="star" class="star" id="star-4" value="4"/>
+            <input type="radio" name="star" class="star" id="star-5" value="5"/>
+            <br>
+            <span></span>
+          </div>
+              <input type="submit" name="commit" value="Submit Review" class="btn btn-primary">
+      </form>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

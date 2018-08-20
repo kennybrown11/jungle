@@ -35,6 +35,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
+gem 'raty_ratings'
+gem 'jquery-star-rating-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
