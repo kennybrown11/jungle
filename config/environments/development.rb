@@ -3,11 +3,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.ethereal.email',
+      :address              => 'smtp.gmail.com',
       :port                 => 587,
-      :domain               => 'ethereal.email',
-      :user_name            => 'ngoeiyrvyccemp6l@ethereal.email',
-      :password             => 'zvtZWDR3EEwbEXC6CG',
+      :domain               => 'gmail.com',
+      :user_name            => 'testemail4kenny@gmail.com',
+      :password             => 'pa$$word1989',
       :authentication => 'plain',
       :enable_starttls_auto => true
   }
