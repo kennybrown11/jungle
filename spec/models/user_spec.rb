@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.new(name: "test", email:"test@email.com", password: "password123", password_confirmation: "password123")
+    @user = User.new(name: "test1", email:"teSt1@email.com", password: "password123", password_confirmation: "password123")
   end
 
   describe 'Validations' do
@@ -45,5 +45,16 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '.authenticate_with_credentials' do 
+    context 'login submit' do 
+      it 'if the email and password exist and match, login' do 
+        @user1 = User.new email: 'test@email.com', password: 'password', password_confirmation: 'password', name: 'name'
+        @user1.save!   
+        expect(User.authenticate_with_credentials('test@email.com', 'password')).to eq(@user1)
+        expect(User.authenticate_with_credentials('  test@email.com', 'password ')).to eq(@user1)
+
+      end
+    end
+  end
 
 end
