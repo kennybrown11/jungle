@@ -21,6 +21,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
 
     first('article.product').click_link 'Details'
 
+    save_screenshot 'product_details.png'
     expect(page).to have_css 'article.product-detail'
 
   end
